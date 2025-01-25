@@ -29,9 +29,9 @@ public class Review05 {
             pstmt = con.prepareStatement(sql);
 
             System.out.print("検索キーワードを入力してください > ");
-            String input = keyIn();
+            int input = keyInNum();
 
-            pstmt.setString(1, input);
+            pstmt.setInt(1, input);
 
             rs = pstmt.executeQuery();
 
@@ -87,4 +87,12 @@ private static String keyIn() {
     return line;
 }
 
+private static int keyInNum() {
+    int result = 0;
+    try {
+        result = Integer.parseInt(keyIn());
+    } catch (NumberFormatException e) {
+    }
+    return result;
+}
 }
